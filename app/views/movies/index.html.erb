@@ -1,0 +1,17 @@
+<div class="container">
+   <%= form_for movies_path, method: :get do %>
+   <%= text_field_tag :query, params[:query],
+   class: "form-control",
+   placeholder: "Look for a movie" %>
+   <% end %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div id="movies">
+        <% @results.each do |result| %>
+          <h4><%= result.searchable_type %></h4>
+          <p><%= result.content %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
